@@ -60,9 +60,14 @@
       </div>
     </div>
 
-    <aside class="w-30-l mt6-l">
-      {{- partial "menu-contextual.html" . -}}
-    </aside>
+    <div class="w-30-l mt2-l">
+      <aside class="mt2-l">
+        {{- partial "menu-contextual.html" . -}}
+      </aside>
+      <aside class="toc mt2-l">
+        {{- partial "menu-toc.html" . -}}
+      </aside>
+    </div>
 
   </article>
 {{ end }}

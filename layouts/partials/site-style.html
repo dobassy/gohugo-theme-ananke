@@ -2,6 +2,9 @@
 <link rel="stylesheet" href="{{ .RelPermalink }}" >
 {{ end }}
 
+{{ $builtSubCSS := resources.Get "/ananke/css/sub.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $builtSubCSS.RelPermalink }}" >
+
 {{ range site.Params.custom_css }}
   {{ with partialCached "func/style/GetResource" . . }}{{ else }}
     <link rel="stylesheet" href="{{ relURL (.) }}">
