@@ -120,3 +120,10 @@ article.hugo-list img.hatena-bookmark {
     height: 100px;
   }
 }
+
+article p > code {
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  color: #137752;
+  background-color: #FFDFDF;
+}
