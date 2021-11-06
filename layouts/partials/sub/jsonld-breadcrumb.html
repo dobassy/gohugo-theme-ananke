@@ -1,0 +1,23 @@
+{{ if .IsPage }}
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+              "@id": {{ .Site.BaseURL }},
+              "name": "home"
+          }
+      }{{ with .Params.categories -}},{
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+              "@id": {{ printf "%s%s" ("categories/" | absLangURL) ( index . 0 | urlize ) }},
+              "name": {{ index . 0 }}
+          }
+      }{{- end }}]
+  }
+  </script>
+{{ end }}

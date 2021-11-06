@@ -33,6 +33,9 @@
     {{- template "_internal/schema.html" . -}}
     {{- template "_internal/twitter_cards.html" . -}}
 
+    {{- partial "sub/jsonld.html" . -}}
+    {{- partial "sub/jsonld-breadcrumb.html" . -}}
+
     {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
       {{ template "_internal/google_analytics_async.html" . }}
     {{ end }}
