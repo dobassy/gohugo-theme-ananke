@@ -11,9 +11,10 @@
     <ul class="pa0 list">
 	   {{ range . }}
 	     <li  class="mb2">
-          <a href="{{ .RelPermalink }}">
-            {{- .Title -}}
+         <a href="{{ .RelPermalink }}">
+           {{- .Title -}}
           </a>
+          {{ partial "sub/hatebu.html" . }}
         </li>
 	    {{ end }}
     </ul>

@@ -34,3 +34,12 @@ nav#TableOfContents li.active > a {
   color: #333;
   font-weight: 500;
 }
+
+img.hatena-bookmark {
+  padding-left: .5rem;
+  vertical-align: middle;
+}
+
+article.hugo-list img.hatena-bookmark {
+  width: 40px;
+}
