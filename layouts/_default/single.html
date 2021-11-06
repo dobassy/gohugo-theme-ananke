@@ -46,8 +46,10 @@
         <span class="f6 mv4 dib tracked"> - {{ i18n "readingTime" .ReadingTime }} </span>
         <span class="f6 mv4 dib tracked"> - {{ i18n "wordCount" .WordCount }} </span>
       {{ end }}
+      <span class="f6 mv4 dib tracked"> - {{ partial "sub/hatebu.html" . }}</span>
     </header>
     <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | default "serif"}} f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+      {{- partial "sub/legacy-alert.html" . -}}
       {{- .Content -}}
       {{- partial "tags.html" . -}}
       <div class="mt6 instapaper_ignoref">
