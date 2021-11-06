@@ -3,6 +3,6 @@
 {{/* Hatena Bookmark (a.k.a. hatebu) is the social bookmark site for japanese */}}
 {{ if and (eq .Site.Params.hatebu true) ( eq (getenv "HUGO_ENV") "production" ) }}
   <a href="https://b.hatena.ne.jp/entry/{{ $url }}" rel="nofollow">
-    <img class="hatena-bookmark" src="https://b.hatena.ne.jp/entry/image/{{ $url }}">
+    <img alt="Hatena Bookmark Counter for {{ .Title }}" class="hatena-bookmark" src="https://b.hatena.ne.jp/entry/image/{{ $url }}">
   </a>
 {{ end }}
