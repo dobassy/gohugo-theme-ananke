@@ -1,9 +1,10 @@
-:root{
-  --font-family-sans-serif: 'Noto Sans JP', "游ゴシック体", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+:root {
+  --font-family-sans-serif: "Noto Sans JP", "游ゴシック体", "Yu Gothic",
+    YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
   font-family: var(--font-family-sans-serif);
 }
 
@@ -12,30 +13,29 @@ body,
 .athelas,
 .sans-serif,
 .serif,
-.avenir
- {
+.avenir {
   font-family: var(--font-family-sans-serif);
 }
 
 aside.toc {
-	position: sticky;
-	top: 2rem;
-	align-self: start;
+  position: sticky;
+  top: 2rem;
+  align-self: start;
 }
 
 nav#TableOfContents ul ul {
-	padding-left: 1em;
+  padding-left: 1em;
 }
 
 nav#TableOfContents ul li {
-	margin-bottom: 0;
-	padding-bottom: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 nav#TableOfContents a {
   text-decoration: none;
   display: block;
-  padding: .125rem 0;
+  padding: 0.125rem 0;
   color: #ccc;
   transition: all 50ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
 }
@@ -51,10 +51,72 @@ nav#TableOfContents li.active > a {
 }
 
 img.hatena-bookmark {
-  padding-left: .5rem;
+  padding-left: 0.5rem;
   vertical-align: middle;
 }
 
 article.hugo-list img.hatena-bookmark {
   width: 40px;
+}
+
+/* custom.css */
+.blogcard {
+  line-height: 1;
+  background-color: #ffffff;
+  border: 1px solid #eeeeee;
+  word-wrap: break-word;
+  margin: 1em 0;
+  box-shadow: 0 0 10px 6px rgba(0, 0, 0, 0.025);
+  overflow: hidden;
+}
+
+.blogcard a {
+  text-decoration: none;
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+
+.blogcard a:hover {
+  opacity: 0.6;
+}
+
+.blogcard_thumbnail {
+  float: left;
+  padding: 0px;
+  padding-right: 20px;
+}
+
+.blogcard_title {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.4;
+  padding: 10px 20px 10px;
+  color: black;
+}
+
+.blogcard_extract,
+.blogcard_host
+ {
+  font-size: 0.7em;
+  line-height: 1.6;
+  padding: 0 15px 10px 20px;
+  color: black;
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+  .blogcard {
+    margin: 40px 0;
+  }
+  .blogcard_title {
+    font-size: 0.9em;
+    padding-bottom: 1em;
+  }
+  .blogcard_extract {
+    display: none;
+  }
+  .blogcard_img {
+    width: 100px;
+    height: 100px;
+  }
 }
