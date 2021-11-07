@@ -2,7 +2,7 @@
   --font-family-sans-serif: "Noto Sans JP", "游ゴシック体", "Yu Gothic",
     YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   --card-background: #fff;
-  --card-text-color-main: #000;;
+  --card-text-color-main: #000;
 }
 
 /*
@@ -11,11 +11,15 @@
 *          via https://github.com/CaiJimmy/hugo-theme-stack/blob/dda55f87e28e5132abfe0bcb4991e93c79688e5e/assets/scss/variables.scss
 */
 :root {
-  --shadow-l1: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 0px 1px rgba(0, 0, 0, 0.04);
-  --shadow-l2: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
-  --shadow-l3: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
-  --shadow-l4: 0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04),
-      0px 0px 1px rgba(0, 0, 0, 0.04);
+  --shadow-l1: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
+  --shadow-l2: 0px 10px 20px rgba(0, 0, 0, 0.04),
+    0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  --shadow-l3: 0px 10px 20px rgba(0, 0, 0, 0.04),
+    0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  --shadow-l4: 0px 24px 32px rgba(0, 0, 0, 0.04),
+    0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
 }
 
 html {
@@ -110,8 +114,7 @@ article.hugo-list img.hatena-bookmark {
 }
 
 .blogcard_extract,
-.blogcard_host
- {
+.blogcard_host {
   font-size: 0.7em;
   line-height: 1.6;
   padding: 0 15px 10px 20px;
@@ -136,11 +139,32 @@ article.hugo-list img.hatena-bookmark {
   }
 }
 
-article p > code {
-  padding-left: 0.3em;
-  padding-right: 0.3em;
-  color: #137752;
-  background-color: #FFDFDF;
+article {
+  p > code {
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    font-size: 0.9em;
+    color: #137752;
+    background-color: #ffdfdf;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  table th {
+    padding: 10px;
+    text-align: left;
+    border-bottom: solid 4px #778ca3;
+    color: #778ca3;
+    font-size: 0.9em;
+  }
+  table td {
+    padding: 10px;
+    border-bottom: solid 1px #778ca3;
+    font-size: 0.8em;
+  }
 }
 
 #legacy-alert {
@@ -150,19 +174,19 @@ article p > code {
 /* Tag cloud widget */
 .tagcloud {
   .tagcloud-tags {
-      display: flex;
-      flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 
-      a {
-          background: var(--card-background);
-          box-shadow: var(--shadow-l1);
-          color: var(--card-text-color-main);
-          font-size: 0.9rem;
-          transition: box-shadow 0.3s ease;
+    a {
+      background: var(--card-background);
+      box-shadow: var(--shadow-l1);
+      color: var(--card-text-color-main);
+      font-size: 0.9rem;
+      transition: box-shadow 0.3s ease;
 
-          &:hover {
-              box-shadow: var(--shadow-l3);
-          }
+      &:hover {
+        box-shadow: var(--shadow-l3);
       }
+    }
   }
 }
