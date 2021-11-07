@@ -127,3 +127,7 @@ article p > code {
   color: #137752;
   background-color: #FFDFDF;
 }
+
+#legacy-alert {
+  display: none;
+}

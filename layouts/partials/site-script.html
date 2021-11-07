@@ -1,2 +1,31 @@
 {{ $built := resources.Get "/ananke/js/sub.js" | minify | fingerprint }}
 <script src="{{ $built.RelPermalink }}" defer></script>
+
+{{ if .IsPage }}
+  {{ if and (.Site.Params.legacyAlertMessage) (.Params.legacy_alert) }}
+  <script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", () => {
+      var articleCreatedTime = document.getElementsByClassName("created_at");
+      var articleUpdatedTime = document.getElementsByClassName("updated_at");
+      var articleTime =
+        articleUpdatedTime.length > 0
+          ? articleUpdatedTime[0].getAttribute("datetime")
+          : articleCreatedTime[0].getAttribute("datetime");
+
+      if (articleTime !== undefined) {
+        var nowDate = new Date();
+        nowDate = new Date(
+          nowDate.getFullYear(),
+          nowDate.getMonth() + 1,
+          nowDate.getDate()
+        );
+        var pubDate = new Date(articleTime);
+        var diff = (nowDate - pubDate) / 86400000;
+        if (diff > 365) {
+          document.getElementById("legacy-alert").style.display = "flex";
+        }
+      }
+    });
+  </script>
+  {{ end }}
+{{ end }}
