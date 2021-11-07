@@ -71,7 +71,9 @@
     </div>
 
     <div class="w-30-l">
+      {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
       {{- partial "ads/sidebar-top.html" . -}}
+      {{ end }}
       <aside class="mt2-l">
         {{- partial "menu-contextual.html" . -}}
       </aside>
