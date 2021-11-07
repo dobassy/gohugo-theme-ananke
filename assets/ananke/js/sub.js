@@ -1,6 +1,4 @@
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("DOMContentLoad");
-
   const tocActiveStateObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       const id = entry.target.getAttribute("id");
