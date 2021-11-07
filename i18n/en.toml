@@ -47,3 +47,6 @@ other = "{{ .Name }} page"
 
 [lastModDate]
 other = "Last Updated"
+
+[tagCloudTitle]
+other = "Tag Cloud"
