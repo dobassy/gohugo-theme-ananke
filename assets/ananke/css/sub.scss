@@ -143,7 +143,9 @@ article.hugo-list img.hatena-bookmark {
 }
 
 article {
-  p, li {
+
+  p,
+  li {
     font-size: 0.9em;
   }
 
@@ -173,6 +175,25 @@ article {
     padding: 10px;
     border-bottom: solid 1px #778ca3;
     font-size: 0.8em;
+  }
+
+  table {
+    display: block;
+    overflow-x: scroll;
+    // white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  blockquote {
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-width: .25rem;
+    border-color: #408bc9;
+    padding-left: 2rem;
+    margin-left: 0;
+    color: rgba(0, 0, 0, .9);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 }
 
