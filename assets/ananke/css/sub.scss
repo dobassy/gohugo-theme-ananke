@@ -56,7 +56,8 @@ nav#TableOfContents a {
   display: block;
   padding: 0.125rem 0;
   color: #ccc;
-  transition: all 50ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
+  transition: all 50ms ease-in-out;
+  /* 💡 This small transition makes setting of the active state smooth */
 }
 
 nav#TableOfContents a:hover,
@@ -64,7 +65,7 @@ nav#TableOfContents a:focus {
   color: #666;
 }
 
-nav#TableOfContents li.active > a {
+nav#TableOfContents li.active>a {
   color: #333;
   font-weight: 500;
 }
@@ -78,7 +79,6 @@ article.hugo-list img.hatena-bookmark {
   width: 40px;
 }
 
-/* custom.css */
 .blogcard {
   line-height: 1;
   background-color: #ffffff;
@@ -126,13 +126,16 @@ article.hugo-list img.hatena-bookmark {
   .blogcard {
     margin: 40px 0;
   }
+
   .blogcard_title {
     font-size: 0.9em;
     padding-bottom: 1em;
   }
+
   .blogcard_extract {
     display: none;
   }
+
   .blogcard_img {
     width: 100px;
     height: 100px;
@@ -140,7 +143,11 @@ article.hugo-list img.hatena-bookmark {
 }
 
 article {
-  p > code {
+  p, li {
+    font-size: 0.9em;
+  }
+
+  p>code {
     padding-left: 0.3em;
     padding-right: 0.3em;
     font-size: 0.9em;
@@ -153,6 +160,7 @@ article {
     border-collapse: collapse;
     border-spacing: 0;
   }
+
   table th {
     padding: 10px;
     text-align: left;
@@ -160,6 +168,7 @@ article {
     color: #778ca3;
     font-size: 0.9em;
   }
+
   table td {
     padding: 10px;
     border-bottom: solid 1px #778ca3;
