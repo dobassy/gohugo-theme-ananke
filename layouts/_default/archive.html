@@ -1,25 +1,39 @@
 {{ define "main" }}
 {{ $pages := (where .Site.Pages "IsPage" true) }}
 
-<div class="archives mw7 center">
-  {{ range ($pages.GroupByDate "2006") }}
-    {{ if gt .Key 1 }}
-      <h2 class="f1">{{ .Key }}</h2>
+<div class="flex-l mw8-l mw7 center mt5 ph2">
+  <div class="archives w-two-thirds-l center">
+    {{ range ($pages.GroupByDate "2006") }}
+      {{ if gt .Key 1 }}
+        <h2 class="f1 mt0">{{ .Key }}</h2>
 
-      <ul>
-      {{ range .Pages }}
-        <li class="mb2 pa0">
-          <span>{{ .Date.Format "01/02" }}</span> —
-          <a class="link underline blue hover-bg-lightest-blue pa0"
-            href="{{ .RelPermalink }}">
-            {{ .Title }}
-          </a>
-          {{ partial "sub/hatebu.html" . }}
-        </li>
+        <ul>
+        {{ range .Pages }}
+          <li class="mb2 pa0">
+            <span>{{ .Date.Format "01/02" }}</span> —
+            <a class="link underline blue hover-bg-lightest-blue pa0"
+              href="{{ .RelPermalink }}">
+              {{ .Title }}
+            </a>
+            {{ partial "sub/hatebu.html" . }}
+          </li>
+        {{ end }}
+        </ul>
+
       {{ end }}
-      </ul>
-
     {{ end }}
-  {{ end }}
+  </div>
+
+  <div class="w-30-l mt5 mt0-l">
+    {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
+    <aside class="mb2-l">
+      {{- partial "ads/sidebar-top.html" . -}}
+    </aside>
+    {{ end }}
+    <aside class="tagcloud mb2-l">
+      {{- partial "widgets/tag-cloud.html" . -}}
+    </aside>
+  </div>
 </div>
+
 {{ end }}
