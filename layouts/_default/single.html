@@ -62,6 +62,7 @@
     <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | default "serif"}} f4 nested-links nested-img mid-gray pr2-l w-two-thirds-l">
       {{- partial "sub/legacy-alert.html" . -}}
       {{- .Content -}}
+      {{- partial "sub/categories.html" . -}}
       {{- partial "tags.html" . -}}
       <div class="mt6 instapaper_ignoref">
       {{ if .Site.DisqusShortname }}

@@ -1,0 +1,11 @@
+{{ $icon_size := "35px" }}
+<ul class="pa0 mr4 dib">
+  <li class="list dib v-mid mr2 svg-icon-default">{{ partial "svg/folder-open.svg" (dict "size" $icon_size) }}</li>
+  {{ range .Params.categories }}
+   <li class="list dib v-mid">
+     <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="link f5 grow no-underline br-pill ba ph3 pv1 mb2 dib black sans-serif">
+       {{- . -}}
+     </a>
+   </li>
+  {{ end }}
+</ul>
