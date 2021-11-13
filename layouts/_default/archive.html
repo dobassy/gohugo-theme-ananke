@@ -1,0 +1,25 @@
+{{ define "main" }}
+{{ $pages := (where .Site.Pages "IsPage" true) }}
+
+<div class="archives mw7 center">
+  {{ range ($pages.GroupByDate "2006") }}
+    {{ if gt .Key 1 }}
+      <h2 class="f1">{{ .Key }}</h2>
+
+      <ul>
+      {{ range .Pages }}
+        <li class="mb1 pa0">
+          <span>{{ .Date.Format "01/02" }}</span> —
+          <a class="link underline blue hover-bg-lightest-blue pa0"
+            href="{{ .RelPermalink }}">
+            {{ .Title }}
+          </a>
+          {{ partial "sub/hatebu.html" . }}
+        </li>
+      {{ end }}
+      </ul>
+
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}
