@@ -1,3 +1,5 @@
+@import "substyles/toc_spy";
+
 :root {
   --font-family-sans-serif: "Noto Sans JP", "游ゴシック体", "Yu Gothic",
     YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
@@ -40,34 +42,6 @@ aside.toc {
   position: sticky;
   top: 2rem;
   align-self: start;
-}
-
-nav#TableOfContents ul ul {
-  padding-left: 1em;
-}
-
-nav#TableOfContents ul li {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-nav#TableOfContents a {
-  text-decoration: none;
-  display: block;
-  padding: 0.125rem 0;
-  color: #ccc;
-  transition: all 50ms ease-in-out;
-  /* 💡 This small transition makes setting of the active state smooth */
-}
-
-nav#TableOfContents a:hover,
-nav#TableOfContents a:focus {
-  color: #666;
-}
-
-nav#TableOfContents li.active>a {
-  color: #333;
-  font-weight: 500;
 }
 
 img.hatena-bookmark {
