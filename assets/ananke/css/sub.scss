@@ -73,13 +73,13 @@ article.hugo-list img.hatena-bookmark {
   opacity: 0.6;
 }
 
-.blogcard_thumbnail {
+.blogcard-thumbnail {
   float: left;
   padding: 0px;
   padding-right: 20px;
 }
 
-.blogcard_title {
+.blogcard-title {
   font-size: 1em;
   font-weight: bold;
   line-height: 1.4;
@@ -87,8 +87,8 @@ article.hugo-list img.hatena-bookmark {
   color: black;
 }
 
-.blogcard_extract,
-.blogcard_host {
+.blogcard-extract,
+.blogcard-host {
   font-size: 0.7em;
   line-height: 1.6;
   padding: 0 15px 10px 20px;
@@ -101,16 +101,16 @@ article.hugo-list img.hatena-bookmark {
     margin: 40px 0;
   }
 
-  .blogcard_title {
+  .blogcard-title {
     font-size: 0.9em;
     padding-bottom: 1em;
   }
 
-  .blogcard_extract {
+  .blogcard-extract {
     display: none;
   }
 
-  .blogcard_img {
+  .blogcard-img {
     width: 100px;
     height: 100px;
   }

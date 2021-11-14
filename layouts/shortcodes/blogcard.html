@@ -2,33 +2,33 @@
 {{/* e.g. `ogpApiServer = "http://localhost:6060/getogp?"` */}}
 
 {{ $url := ( .Get 0) }}
-{{ if .Site.Params.ogpApiServer }}
+{{ if and (.Site.Params.ogpApiServer) (eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")) }}
   {{ $function := print .Site.Params.ogpApiServer (querify "url" $url )}}
   {{ $ogpjson := getJSON $function }} {{ $urlp := urls.Parse $url }}
 
   <div class="blogcard">
     <a href="{{ $ogpjson.url }}">
-      <div class="blogcard_thumbnail">
+      <div class="blogcard-thumbnail">
         <img
-          class="blogcard_img"
+          class="blogcard-img"
           src="{{ $ogpjson.image }}"
           alt="{{ $ogpjson.title }}"
           width="150"
           height="150"
         />
       </div>
-      <div class="blogcard_content">
-        <div class="blogcard_title">
+      <div class="blogcard-content">
+        <div class="blogcard-title">
           <strong> {{ $ogpjson.title | truncate 50}} </strong>
         </div>
-        <div class="blogcard_extract">
+        <div class="blogcard-extract">
           {{ $ogpjson.description | truncate 70}}
         </div>
       </div>
-      <div class="blogcard_host">{{ $urlp.Host }}</div>
+      <div class="blogcard-host">{{ $urlp.Host }}</div>
       <div class="clear"></div>
     </a>
   </div>
 {{ else }}
-  <a href="{{ $url }}">{{ $url }}</a>
+  <p class="blogcard-alternative">Related Link: <a href="{{ $url }}">{{ $url }}</a></p>
 {{ end }}
