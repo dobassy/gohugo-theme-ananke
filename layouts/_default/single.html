@@ -1,5 +1,5 @@
 {{ define "header" }}
-   {{/* We can override any block in the baseof file be defining it in the template */}}
+  {{/* We can override any block in the baseof file be defining it in the template */}}
   {{ partial "page-header.html" . }}
 {{ end }}
 
@@ -29,15 +29,19 @@
           </strong>
       </p>
       {{ end }}
-      <div class="f6 mv4 dib tracked">
+      <div class="f6 mv3 dib tracked">
+        {{ $icon_size := "14px" }}
+
         {{/* Hugo uses Go's date formatting is set by example. Here are two formats */}}
         {{ if not .Date.IsZero }}
+        {{ partial "svg/pencil.svg" (dict "size" $icon_size) }}
         <time itemprop=”datepublished” class="created_at " {{ printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
           {{- .Date.Format (default "January 2, 2006" .Site.Params.date_format) -}}
         </time>
         {{end}}
         {{ if not (eq .Date .Lastmod) }}
         (
+        {{ partial "svg/loop.svg" (dict "size" $icon_size) }}
         <span class="f6"> {{ i18n "lastModDate" .ReadingTime }}: </span>
         <time itemprop=”modified” class="updated_at " {{ printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
           {{- .Lastmod.Format (default "January 2, 2006" .Site.Params.date_format) -}}
@@ -53,7 +57,8 @@
           */}}
         {{ if (or (eq (.Param "show_reading_time") true) (eq $section.Params.show_reading_time true) )}}
           <br>
-          <span class=""> - {{ i18n "readingTime" .ReadingTime }} </span>
+          {{ partial "svg/book.svg" (dict "size" $icon_size) }}
+          <span class=""> {{ i18n "readingTime" .ReadingTime }} </span>
           <span class=""> - {{ i18n "wordCount" .WordCount }} </span>
         {{ end }}
         <span class="">. {{ partial "sub/hatebu.html" . }}</span>
