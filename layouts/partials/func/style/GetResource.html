@@ -16,4 +16,7 @@
   {{ $resource = . }}
 {{ end }}
 
+{{ if eq $resource.MediaType.SubType "x-scss" }}
+  {{ $resource = $resource | toCSS }}
+{{ end }}
 {{ return $resource }}

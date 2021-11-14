@@ -2,10 +2,6 @@
 <link rel="stylesheet" href="{{ .RelPermalink }}" >
 {{ end }}
 
-{{ $subScss := resources.Get "/ananke/css/sub.scss" }}
-{{ $subStyle := $subScss | resources.ToCSS | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $subStyle.RelPermalink }}" >
-
 {{ range site.Params.custom_css }}
   {{ with partialCached "func/style/GetResource" . . }}{{ else }}
     <link rel="stylesheet" href="{{ relURL (.) }}">
