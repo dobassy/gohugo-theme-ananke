@@ -123,12 +123,13 @@ article {
     font-size: 0.9em;
   }
 
-  p>code {
+  p>code,
+  li>code {
     padding-left: 0.3em;
     padding-right: 0.3em;
     font-size: 0.9em;
     color: #137752;
-    background-color: #ffdfdf;
+    background-color: #eaeaea;
   }
 
   table {
