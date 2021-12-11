@@ -50,3 +50,6 @@ other = "最終更新"
 
 [tagCloudTitle]
 other = "タグ一覧"
+
+[tableOfContents]
+other = "見出し"

@@ -1,0 +1,33 @@
+{{ $section := .Section }}
+{{ $related := (where $.Site.RegularPages "Section" $section).ByDate.Reverse | first 5 }}
+
+{{ with $related }}
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <h4 class="f5 b mb3">{{ i18n "whatsInThis" }}</h4>
+    <div class="pa0 list">
+	   {{ range . }}
+	     <div  class="mb3 flex flex-column flex-row-ns">
+
+        {{ $featured_image := partial "func/GetFeaturedImage.html" . }}
+        {{ if $featured_image }}
+            {{ $featured_image := (trim $featured_image "/") | absURL }}
+            <div class="pr3-ns mb4 mb0-ns w-100 w-20-ns">
+              <a href="{{.RelPermalink}}" class="db grow">
+                <img src="{{ $featured_image }}" class="img hero-mini" alt="image from {{ .Title }}">
+              </a>
+            </div>
+        {{ end }}
+
+        <div>
+          <a href="{{ .RelPermalink }}">
+            {{- .Title -}}
+           </a>
+           {{ partial "sub/hatebu.html" . }}
+           <p class="f6 gray m0 p0">{{ .Summary }}</p>
+        </div>
+      </div>
+
+	    {{ end }}{{/* end of range */}}
+    </div>
+</div>
+{{ end }}

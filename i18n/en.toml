@@ -50,3 +50,6 @@ other = "Last Updated"
 
 [tagCloudTitle]
 other = "Tag Cloud"
+
+[tableOfContents]
+other = "Table of Contents"
