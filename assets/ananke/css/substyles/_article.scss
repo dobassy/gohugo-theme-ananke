@@ -50,6 +50,10 @@ article {
     background-color: #eaeaea;
   }
 
+  a {
+    word-break: break-all;
+  }
+
   strong {
     background: linear-gradient(transparent 75%, $article-emphasis 75%);
     font-weight: bold;
@@ -148,5 +152,40 @@ article {
   .box p {
     margin: 0;
     padding: 0;
+  }
+}
+
+article {
+  @media screen and (max-width: 768px) {
+    h2 {
+      font-size: 1.4rem;
+      position: relative;
+      display: inline-block;
+      padding: 0 20px;
+      color: #000;
+    }
+
+    h2:before,
+    h2:after {
+      width: 15px;
+    }
+
+    .nested-copy-line-height p,
+    .nested-copy-line-height ul,
+    .nested-copy-line-height ol {
+      line-height: 1.8;
+    }
+
+    .nested-copy-line-height blockquote > p {
+      line-height: 1.4;
+      font-size: 1rem;
+    }
+    blockquote {
+      padding-left: 2rem;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      margin-left: 0;
+      margin-right: 0.5rem;
+    }
   }
 }
