@@ -96,6 +96,7 @@ article {
     border-width: 0.25rem;
     border-color: #408bc9;
     padding-left: 2rem;
+    padding-right: 1rem;
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
     margin-left: 0;
@@ -104,6 +105,7 @@ article {
     word-wrap: break-word;
     overflow-wrap: break-word;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.2);
   }
 
   div.alert {
@@ -160,6 +162,7 @@ article {
       list-style-type: none !important;
       padding: 0.3rem 1rem;
       border: solid 2px #ffb107;
+      border-radius: 0.5rem;
     }
     > ol > li {
       border-bottom: dashed 1px orange;
@@ -195,6 +198,10 @@ article {
     }
     > ol li:last-of-type {
       border-bottom: none; /* Remove the last underline */
+    }
+
+    img {
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
     }
   }
 }
