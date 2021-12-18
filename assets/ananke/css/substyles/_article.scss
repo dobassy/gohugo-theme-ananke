@@ -153,6 +153,50 @@ article {
     margin: 0;
     padding: 0;
   }
+
+  .article-body {
+    > ol {
+      counter-reset: number;
+      list-style-type: none !important;
+      padding: 0.3rem 1rem;
+      border: solid 2px #ffb107;
+    }
+    > ol > li {
+      border-bottom: dashed 1px orange;
+      position: relative;
+      padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+      line-height: 1.5em;
+    }
+    > ol > li li {
+      padding-left: 1rem;
+    }
+    > ol > li:before {
+      /* Give numbers */
+      position: absolute;
+      counter-increment: number;
+      content: counter(number);
+
+      /* Change the design of numbers */
+      display: inline-block;
+      background: #ffb107;
+      color: white;
+      font-size: 1rem;
+      border-radius: 50%;
+      left: 0;
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+
+      /* Set position */
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    > ol li:last-of-type {
+      border-bottom: none; /* Remove the last underline */
+    }
+  }
 }
 
 article {
