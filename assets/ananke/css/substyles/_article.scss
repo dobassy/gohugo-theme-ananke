@@ -157,6 +157,12 @@ article {
   }
 
   .article-body {
+    a[target=_blank] {
+      margin-right: 0.5rem;
+      padding-right: 1.2rem;
+      background: url(/images/new-window.png) right center/0.9rem auto no-repeat;
+    }
+
     > ol {
       counter-reset: number;
       list-style-type: none !important;
