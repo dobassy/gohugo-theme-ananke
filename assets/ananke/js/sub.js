@@ -19,6 +19,19 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+window.addEventListener("DOMContentLoaded", () => {
+  const domain = document.domain;
+  const regexp = new RegExp(domain);
+
+  document.querySelectorAll("div.article-body a").forEach((element) => {
+    let href = element.getAttribute("href");
+    if (!regexp.test(href)) {
+      element.setAttribute("target", "_blank");
+      element.setAttribute("rel", "nofollow noopener");
+    }
+  });
+});
+
 function clearActiveStatesInTableOfContents() {
   document.querySelectorAll("nav li").forEach((section) => {
     section.classList.remove("active");
