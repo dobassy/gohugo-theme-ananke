@@ -7,6 +7,12 @@
     {{ $anyKeywords := (or (gt (len $cats) 0) (gt (len $tags) 0) (gt (len $keys) 0) ) }}
     {{ $joinKeywords := (slice) }}
     {{ $joinKeywords = ($joinKeywords | append $cats | append $tags | append $keys) | uniq }}
+    {{ $eyecatchImage := "" }}
+    {{ if .Params.featured_image }}
+        {{ $eyecatchImage = .Params.featured_image | absURL }}
+    {{ else if $.Site.Params.images }}
+        {{ $eyecatchImage = index $.Site.Params.images 0 | absURL }}
+    {{ end -}}
 
     <script type="application/ld+json">
     {
@@ -25,17 +31,10 @@
         "dateModified" : {{ .Lastmod.Format "2006-01-02T15:04:05Z00:00" }},
         "url" : {{ .Permalink }},
         "mainEntityOfPage" : {{ .Permalink }},
-        {{- if .Params.images }}
-        "image": {
+        {{- with $eyecatchImage }}"image": {
             "@type": "ImageObject",
-            "url": {{ index .Params.images 0 | absURL }}
-        },
-        {{ else if $.Site.Params.images }}
-        "image": {
-            "@type": "ImageObject",
-            "url": {{ index $.Site.Params.images 0 | absURL }}
-        },
-        {{ end -}}
+            "url": {{ . }}
+        },{{ end }}
         {{- if $anyKeywords }}"keywords" : [{{ delimit $joinKeywords ", " }}],{{ end }}
         "author" : {
             "@type": "Person",
