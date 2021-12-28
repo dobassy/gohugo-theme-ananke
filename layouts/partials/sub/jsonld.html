@@ -10,6 +10,8 @@
     {{ $eyecatchImage := "" }}
     {{ if .Params.featured_image }}
         {{ $eyecatchImage = .Params.featured_image | absURL }}
+    {{ else if .Params.images }}
+        {{ $eyecatchImage = index .Params.images 0 | absURL }}
     {{ else if $.Site.Params.images }}
         {{ $eyecatchImage = index $.Site.Params.images 0 | absURL }}
     {{ end -}}
