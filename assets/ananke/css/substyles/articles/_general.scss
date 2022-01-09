@@ -57,24 +57,6 @@ article {
     border-radius: 0.25rem;
   }
 
-  blockquote {
-    border-left-style: solid;
-    border-left-width: 1px;
-    border-width: 0.25rem;
-    border-color: #408bc9;
-    padding-left: 2rem;
-    padding-right: 1rem;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    margin-left: 0;
-    color: $quoted-color;
-    background-color: $quoted-bg-color;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.2);
-  }
-
   .article-body {
     p > strong,
     li > strong {
