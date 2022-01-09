@@ -1,5 +1,8 @@
 article {
-  .nested-copy-line-height p,
+  .nested-copy-line-height p {
+    line-height: 1.8;
+  }
+
   .nested-copy-line-height ul,
   .nested-copy-line-height ol {
     line-height: 1.6;
