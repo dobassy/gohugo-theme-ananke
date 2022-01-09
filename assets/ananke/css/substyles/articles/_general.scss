@@ -53,12 +53,6 @@ article {
   a {
     word-break: break-all;
   }
-
-  strong {
-    background: linear-gradient(transparent 75%, $article-emphasis 75%);
-    font-weight: bold;
-  }
-
   pre {
     border-radius: 0.25rem;
   }
@@ -82,6 +76,12 @@ article {
   }
 
   .article-body {
+    p > strong,
+    li > strong {
+      background: linear-gradient(transparent 75%, $article-emphasis 75%);
+      font-weight: bold;
+    }
+
     a[target=_blank] {
       margin-right: 0.5rem;
       padding-right: 1.2rem;
