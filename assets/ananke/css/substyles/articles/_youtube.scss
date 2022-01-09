@@ -1,0 +1,29 @@
+article {
+  .article-body {
+    .youtube-wrapper {
+      max-width: 800px;
+    }
+
+    .youtube{
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding-bottom: 56.25%;
+    }
+
+    .youtube iframe{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none; /*境界線の打ち消し*/
+    }
+  }
+}
+
+article {
+  @media screen and (max-width: 768px) {
+
+  }
+}
