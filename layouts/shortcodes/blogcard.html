@@ -2,7 +2,7 @@
 {{/* e.g. `ogpApiServer = "http://localhost:6060/getogp?"` */}}
 
 {{ $url := ( .Get 0) }}
-{{ if and (.Site.Params.ogpApiServer) (eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")) }}
+{{ if and (.Site.Params.ogpApiServer) (ne (getenv "OGP_DISABLED") "true" ) (eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")) }}
   {{ $function := print .Site.Params.ogpApiServer (querify "url" $url )}}
   {{ $ogpjson := getJSON $function }} {{ $urlp := urls.Parse $url }}
 
