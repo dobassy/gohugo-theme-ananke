@@ -1,0 +1,124 @@
+.article-body {
+  .box {
+    margin: 2em 0;
+    position: relative;
+    padding: 0.25em 1em;
+    border: solid 2px $article-emphasis;
+    border-radius: 3px 0 3px 0;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border: solid 2px $article-emphasis;
+      border-radius: 50%;
+    }
+
+    &:after {
+      top: -12px;
+      left: -12px;
+    }
+
+    &:before {
+      bottom: -12px;
+      right: -12px;
+    }
+  }
+
+  .box-tab {
+    position: relative;
+    margin: 4rem auto;
+    padding: 1.2em 1em 1em;
+    width: 95%;
+    // background-color: #fff; /*BOX背景色 */
+    border: 2px solid $box-default;
+    box-shadow: 1px 1px 1px #ccc;
+
+    > p {
+      line-height: 1.4rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    span.title {
+      position: absolute;
+      display: inline-block;
+      top: -30px;
+      left: -2px;
+      padding: 0.2rem 1rem 0rem;
+      height: 26px;
+      // font-weight: bold;
+      color: #fff;
+      background-color: $box-default;
+      font-size: 1.2rem;
+      border-radius: 8px 8px 0 0;
+    }
+
+    &.info {
+      border-color: $box-info;
+
+      span.title {
+        background-color: $box-info;
+      }
+    }
+
+    &.warn {
+      border-color: $box-warn;
+
+      span.title {
+        background-color: $box-warn;
+      }
+    }
+  }
+
+  .box-simple {
+    position: relative;
+    margin: 4rem auto;
+    padding: 2.5em 1em 1em;
+    width: 95%;
+    border-style: solid;
+    border-color: $box-default;
+    border-width: 5px 1px 1px;
+    background-color: #f7f7f7;
+    box-shadow: 1px 1px 3px #ccc;
+
+    > p {
+      line-height: 1.4rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    span.title {
+      position: absolute;
+      top: 8px;
+      left: 15px;
+      background-color: #f7f7f7;
+      color: $box-default;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    &.info {
+      border-color: $box-info;
+
+      span.title {
+        color: $box-info-title;
+      }
+    }
+
+    &.warn {
+      border-color: $box-warn;
+
+      span.title {
+        color: $box-warn;
+      }
+    }
+  }
+}

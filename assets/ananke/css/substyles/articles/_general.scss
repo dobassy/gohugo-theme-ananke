@@ -3,11 +3,6 @@ article {
     line-height: 1.8;
   }
 
-  .nested-copy-line-height ul,
-  .nested-copy-line-height ol {
-    line-height: 1.6;
-  }
-
   h2 {
     position: relative;
     display: inline-block;
@@ -39,11 +34,6 @@ article {
     margin-bottom: 1.5rem;
   }
 
-  li {
-    font-size: 1.1rem;
-    margin: 0.25rem 0;
-  }
-
   p > code,
   li > code {
     padding-left: 0.3em;
@@ -73,49 +63,6 @@ article {
       background: url(/images/new-window.png) right center/0.9rem auto no-repeat;
     }
 
-    > ol {
-      counter-reset: number;
-      list-style-type: none !important;
-      padding: 0.3rem 1rem;
-      border: solid 2px #ffb107;
-      border-radius: 0.5rem;
-    }
-    > ol > li {
-      border-bottom: dashed 1px orange;
-      position: relative;
-      padding: 0.5rem 0.5rem 0.5rem 2.5rem;
-      line-height: 1.5em;
-    }
-    > ol > li li {
-      padding-left: 1rem;
-    }
-    > ol > li:before {
-      /* Give numbers */
-      position: absolute;
-      counter-increment: number;
-      content: counter(number);
-
-      /* Change the design of numbers */
-      display: inline-block;
-      background: #ffb107;
-      color: white;
-      font-size: 1rem;
-      border-radius: 50%;
-      left: 0;
-      width: 25px;
-      height: 25px;
-      line-height: 25px;
-      text-align: center;
-
-      /* Set position */
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      transform: translateY(-50%);
-    }
-    > ol li:last-of-type {
-      border-bottom: none; /* Remove the last underline */
-    }
-
     img {
       box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
     }
@@ -137,9 +84,7 @@ article {
       width: 15px;
     }
 
-    .nested-copy-line-height p,
-    .nested-copy-line-height ul,
-    .nested-copy-line-height ol {
+    .nested-copy-line-height p {
       line-height: 1.8;
     }
 
