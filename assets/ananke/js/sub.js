@@ -1,4 +1,10 @@
 window.addEventListener("DOMContentLoaded", () => {
+  setTocActiveStateObserver();
+
+  addNewWindowIconForExternalLink();
+});
+
+function setTocActiveStateObserver() {
   const tocActiveStateObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       const id = entry.target.getAttribute("id");
@@ -17,9 +23,15 @@ window.addEventListener("DOMContentLoaded", () => {
     .forEach((section) => {
       tocActiveStateObserver.observe(section);
     });
-});
+}
 
-window.addEventListener("DOMContentLoaded", () => {
+function clearActiveStatesInTableOfContents() {
+  document.querySelectorAll("nav li").forEach((section) => {
+    section.classList.remove("active");
+  });
+}
+
+function addNewWindowIconForExternalLink() {
   const domain = document.domain;
   const regexp = new RegExp(domain);
 
@@ -29,11 +41,5 @@ window.addEventListener("DOMContentLoaded", () => {
       element.setAttribute("target", "_blank");
       element.setAttribute("rel", "nofollow noopener");
     }
-  });
-});
-
-function clearActiveStatesInTableOfContents() {
-  document.querySelectorAll("nav li").forEach((section) => {
-    section.classList.remove("active");
   });
 }
