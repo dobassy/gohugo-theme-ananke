@@ -2,6 +2,8 @@ window.addEventListener("DOMContentLoaded", () => {
   setTocActiveStateObserver();
 
   addNewWindowIconForExternalLink();
+
+  createFaqSchema();
 });
 
 function setTocActiveStateObserver() {
@@ -42,4 +44,51 @@ function addNewWindowIconForExternalLink() {
       element.setAttribute("rel", "nofollow noopener");
     }
   });
+}
+
+function createFaqSchema() {
+  let questions = document.querySelectorAll(".question-section");
+  if (!questions.length) {
+    return false;
+  }
+
+  const entities = [];
+  questions.forEach((section) => {
+    let question = section.querySelector(".question").innerText;
+    let answer = section.querySelector(".answer").innerHTML.trim();
+    entities.push(createQuestionEntity(question, answer));
+  });
+
+  const schemaBody = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: entities,
+  };
+
+  createSchemaElement(JSON.stringify(schemaBody));
+}
+
+function createSchemaElement(structuredDataText) {
+  const script = document.createElement("script");
+  script.setAttribute("type", "application/ld+json");
+  script.textContent = structuredDataText;
+  document.head.appendChild(script);
+}
+
+function createQuestionEntity(question, answer) {
+  if (!question) {
+    return false;
+  }
+  if (!answer) {
+    return false;
+  }
+
+  return {
+    "@type": "Question",
+    name: `${question}`,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: `${answer}`,
+    },
+  };
 }

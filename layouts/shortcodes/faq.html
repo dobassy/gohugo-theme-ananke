@@ -1,0 +1,9 @@
+{{- $title := .Get "title" -}}
+<div class="question-section">
+  <div class="box-tab info">
+    <span class="title question">{{ $title }}</span>
+    <div class="answer">
+      {{ .Inner | markdownify }}
+    </div>
+  </div>
+</div>
