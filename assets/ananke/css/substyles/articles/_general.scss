@@ -57,6 +57,11 @@ article {
       font-weight: bold;
     }
 
+    p > cite {
+      display: block;
+      text-align: right;
+    }
+
     a[target=_blank] {
       margin-right: 0.5rem;
       padding-right: 1.2rem;
