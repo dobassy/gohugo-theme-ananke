@@ -36,10 +36,11 @@ function clearActiveStatesInTableOfContents() {
 function addNewWindowIconForExternalLink() {
   const domain = document.domain;
   const regexp = new RegExp(domain);
+  const isHttpSchema = new RegExp(/https?:/);
 
   document.querySelectorAll("div.article-body a").forEach((element) => {
     let href = element.getAttribute("href");
-    if (!regexp.test(href)) {
+    if (!regexp.test(href) && isHttpSchema.test(href)) {
       element.setAttribute("target", "_blank");
       element.setAttribute("rel", "nofollow noopener");
     }
