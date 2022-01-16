@@ -32,7 +32,7 @@
       <div class="f6 mv3 dib tracked">
         {{ $icon_size := "14px" }}
 
-        {{/* Hugo uses Go's date formatting is set by example. Here are two formats */}}
+        {{/* Hugo uses Go's date formatting is set by example. Here are two formats. '*/}}
         {{ if not .Date.IsZero }}
         {{ partial "svg/pencil.svg" (dict "size" $icon_size) }}
         <time itemprop=”datepublished” class="created_at " {{ printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
@@ -102,4 +102,6 @@
     </div>
 
   </article>
+  {{- partial "sub/page-footer-related.html" . -}}
+
 {{ end }}
