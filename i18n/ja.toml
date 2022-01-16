@@ -53,3 +53,6 @@ other = "タグ一覧"
 
 [tableOfContents]
 other = "見出し"
+
+[categoryPosts]
+other = "カテゴリ記事一覧"

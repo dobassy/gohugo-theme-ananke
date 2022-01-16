@@ -53,3 +53,6 @@ other = "Tag Cloud"
 
 [tableOfContents]
 other = "Table of Contents"
+
+[categoryPosts]
+other = "Category Posts"
