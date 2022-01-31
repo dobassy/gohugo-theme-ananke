@@ -1,44 +1,46 @@
 article {
+
   .nested-copy-line-height ul,
   .nested-copy-line-height ol {
     line-height: 1.6;
   }
 
-  li {
-    font-size: 1.1rem;
-    margin: 0.25rem 0;
-  }
-
   .article-body {
-    > ul {
+    >ul {
       list-style: none;
-      margin-left: 0;
-      padding-left: 1rem;
+      position: relative;
+      margin-left: 1rem;
+      padding-left: 2rem;
     }
 
-    > ul > li::before {
-        font-family: 'Font Awesome 5 Free';
-        content: "\f35a";
-        margin-right: 0.5rem;
+    >ul>li::before {
+      font-family: 'Font Awesome 5 Free';
+      content: "\f35a";
+      position: absolute;
+      left: 0;
+
     }
 
-    > ol {
+    >ol {
       counter-reset: number;
       list-style-type: none !important;
       padding: 0.3rem 1rem;
       border: solid 2px #ffb107;
       border-radius: 0.5rem;
     }
-    > ol > li {
+
+    >ol>li {
       border-bottom: dashed 1px orange;
       position: relative;
       padding: 0.5rem 0.5rem 0.5rem 2.5rem;
       line-height: 1.5em;
     }
-    > ol > li li {
+
+    >ol>li li {
       padding-left: 1rem;
     }
-    > ol > li:before {
+
+    >ol>li:before {
       /* Give numbers */
       position: absolute;
       counter-increment: number;
@@ -61,8 +63,10 @@ article {
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
     }
-    > ol li:last-of-type {
-      border-bottom: none; /* Remove the last underline */
+
+    >ol li:last-of-type {
+      border-bottom: none;
+      /* Remove the last underline */
     }
 
   }
@@ -70,6 +74,7 @@ article {
 
 article {
   @media screen and (max-width: 768px) {
+
     .nested-copy-line-height ul,
     .nested-copy-line-height ol {
       line-height: 1.8;
