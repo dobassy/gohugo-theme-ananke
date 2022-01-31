@@ -3,39 +3,8 @@ article {
     line-height: 1.8;
   }
 
-  h2 {
-    position: relative;
-    display: inline-block;
-    padding: 0 55px;
-  }
-
-  h2:before,
-  h2:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    display: inline-block;
-    width: 45px;
-    height: 2px;
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
-  }
-
-  h2:before {
-    left: 0;
-  }
-
-  h2:after {
-    right: 0;
-  }
-
-  p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  p > code,
-  li > code {
+  p>code,
+  li>code {
     padding-left: 0.3em;
     padding-right: 0.3em;
     font-size: 0.9em;
@@ -46,18 +15,24 @@ article {
   a {
     word-break: break-all;
   }
+
   pre {
     border-radius: 0.25rem;
   }
 
   .article-body {
-    p > strong,
-    li > strong {
+    p {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p>strong,
+    li>strong {
       background: linear-gradient(transparent 75%, $article-emphasis 75%);
       font-weight: bold;
     }
 
-    p > cite {
+    p>cite {
       display: block;
       text-align: right;
     }
@@ -71,38 +46,37 @@ article {
     img {
       box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
     }
+
+    pre>code {
+      line-height: 1.6;
+    }
   }
 }
 
 article {
   @media screen and (max-width: 768px) {
-    h2 {
-      font-size: 1.4rem;
-      position: relative;
-      display: inline-block;
-      padding: 0 20px;
-      color: #000;
-    }
-
-    h2:before,
-    h2:after {
-      width: 15px;
-    }
-
     .nested-copy-line-height p {
       line-height: 1.8;
     }
 
-    .nested-copy-line-height blockquote > p {
+    .nested-copy-line-height blockquote>p {
       line-height: 1.4;
       font-size: 1rem;
     }
+
     blockquote {
       padding-left: 2rem;
       padding-top: 0.25rem;
       padding-bottom: 0.25rem;
       margin-left: 0;
       margin-right: 0.5rem;
+    }
+
+    .article-body {
+      pre>code {
+        font-size: 0.7rem;
+        line-height: 1.2;
+      }
     }
   }
 }

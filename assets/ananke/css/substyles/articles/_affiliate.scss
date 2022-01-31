@@ -1,0 +1,19 @@
+.article-body {
+  .affiliate {
+    padding: 1rem;
+
+    .center,
+    .button {
+      text-align: center;
+    }
+
+    .nested-img img {
+      display: inline-block;
+    }
+
+    &.info {
+      border: 3px solid #9EEBCF;
+      background-color: #E8FDF5;
+    }
+  }
+}

@@ -7,7 +7,7 @@
     border-radius: 3px 0 3px 0;
 
     p {
-      margin: 0;
+      margin: 0 0 1rem;
       padding: 0;
     }
 
@@ -36,14 +36,14 @@
     position: relative;
     margin: 4rem auto;
     padding: 1.2em 1em 1em;
-    width: 95%;
+    width: 100%;
     // background-color: #fff; /*BOX背景色 */
     border: 2px solid $box-default;
     box-shadow: 1px 1px 1px #ccc;
 
-    > p {
+    >p {
       line-height: 1.4rem;
-      margin: 0;
+      margin: 0 0 1rem;
       padding: 0;
     }
 
@@ -82,16 +82,16 @@
     position: relative;
     margin: 4rem auto;
     padding: 2.5em 1em 1em;
-    width: 95%;
+    width: 100%;
     border-style: solid;
     border-color: $box-default;
     border-width: 5px 1px 1px;
     background-color: #f7f7f7;
     box-shadow: 1px 1px 3px #ccc;
 
-    > p {
+    >p {
       line-height: 1.4rem;
-      margin: 0;
+      margin: 0 0 1rem;
       padding: 0;
     }
 
