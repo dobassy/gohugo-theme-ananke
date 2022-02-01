@@ -34,17 +34,7 @@ article {
     .article-body {
       h2 {
         font-size: 1.4rem;
-        position: relative;
-        display: inline-block;
-        padding: 0 20px;
-        color: #000;
       }
-
-      h2:before,
-      h2:after {
-        width: 15px;
-      }
-
     }
   }
 }

@@ -1,7 +1,7 @@
 {{ $featured_image := partial "func/GetFeaturedImage.html" . }}
 {{ if not $featured_image }}{{ $featured_image = "/images/default-eye.webp" }}{{ end }}
-<div class="fl w-50 w-25-l pa3 pa3-l pa4-l">
-  <a href="{{ .RelPermalink }}" class="f6 f4-l db h3 h-auto-l b link black ">
+<article class="fl w-50 w-25-l pa3 pa3-l pa4-l">
+  <a href="{{ .RelPermalink }}" class="f6 f4-l db b link black ">
     <div class="aspect-ratio aspect-ratio--16x9 mb2">
       <img src="{{$featured_image}}" class="cover bg-center aspect-ratio--object" alt="{{ .Title }}"
         title="{{ .Title }}">
@@ -12,4 +12,4 @@
   <p class="dn db-l f6 lh-copy measure mid-gray">
     {{ .Summary }}
     {{ if .Truncated }}<span>... </span>{{ end }} </p>
-</div>
+</article>

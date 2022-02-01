@@ -2,7 +2,7 @@
 {{ $category_posts := index .Site.Taxonomies.categories (lower $category) | first 4 }}
 {{ with $category_posts }}
 
-<section class="cf w-100 bg-light-gray">
+<section class="w-100 bg-light-gray">
   <div class="pa4 pv1">
     <h4 class="f3 b mb1">
       {{ i18n "categoryPosts" }} -
@@ -10,9 +10,11 @@
     </h4>
   </div>
 
-  {{ range . }}
-  {{ partial "sub/post-with-title-and-image.html" . }}
-  {{ end }}
+  <div class="flex flex-wrap">
+    {{ range . }}
+    {{ partial "sub/post-with-title-and-image.html" . }}
+    {{ end }}
+  </div>
 </section>
 
 {{ end }}
