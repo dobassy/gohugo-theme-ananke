@@ -1,34 +1,51 @@
-{{/* If you want to use this shortcode, you need to set the API server endpoint in config.toml */}}
+{{/* If you want to use this shortcode, you need to set the API server endpoint and default image in config.toml */}}
 {{/* e.g. `ogpApiServer = "http://localhost:6060/getogp?"` */}}
+{{/* e.g. `noimageDefaultEyecatch = "http://localhost:6060/getogp?"` */}}
 
 {{ $url := ( .Get 0) }}
-{{ if and (.Site.Params.ogpApiServer) (ne (getenv "OGP_DISABLED") "true" ) (eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")) }}
-  {{ $function := print .Site.Params.ogpApiServer (querify "url" $url )}}
-  {{ $ogpjson := getJSON $function }} {{ $urlp := urls.Parse $url }}
+{{ if (.Site.Params.noimageDefaultEyecatch) }}
+{{ $urlp := urls.Parse $url }}
+{{ $pageUrl := $url }}
+{{ $pageImg := .Site.Params.noimageDefaultEyecatch }}
+{{ $pageTitle := $url }}
+{{ $pageDesc := "Notice: You are in development mode or could not get the remote server" }}
+{{ $pageHost := $urlp.Host }}
 
-  <div class="blogcard">
-    <a href="{{ $ogpjson.url }}">
-      <div class="blogcard-thumbnail">
-        <img
-          class="blogcard-img"
-          src="{{ $ogpjson.image }}"
-          alt="{{ $ogpjson.title }}"
-          width="150"
-          height="150"
-        />
-      </div>
-      <div class="blogcard-content">
-        <div class="blogcard-title">
-          <strong> {{ $ogpjson.title | truncate 50}} </strong>
-        </div>
-        <div class="blogcard-extract">
-          {{ $ogpjson.description | truncate 70}}
-        </div>
-      </div>
-      <div class="blogcard-host">{{ $urlp.Host }}</div>
-      <div class="clear"></div>
-    </a>
-  </div>
+{{ if and (.Site.Params.ogpApiServer) (ne (getenv "OGP_DISABLED") "true" ) (eq (getenv "HUGO_ENV") "production") }}
+{{ $function := print .Site.Params.ogpApiServer (querify "url" $url )}}
+{{ $ogpjson := getJSON $function }} {{ $urlp := urls.Parse $url }}
+{{ with $ogpjson.url }}
+
+{{ $pageUrl = $ogpjson.url }}
+{{ $pageImg = $ogpjson.image }}
+{{ $pageTitle = $ogpjson.title }}
+{{ $pageDesc = $ogpjson.description }}
+{{ $pageHost = $urlp.Host }}
+{{ end }}{{/* End of With */}}
 {{ else }}
-  <p class="blogcard-alternative">Related Link: <a href="{{ $url }}">{{ $url }}</a></p>
+{{ end }}
+
+<div class="blogcard">
+  <span class="box-label">{{ i18n "related" }}</span>
+  <a href="{{ $pageUrl }}" class="no-underline">
+
+    <div class="blogcard-wrapper flex mt1 w-100">
+      <div class="blogcard-thumbnail w4 ma1 mr3">
+        <div class="aspect-ratio aspect-ratio--4x3">
+          <img class="blogcard-img aspect-ratio--object cover" src="{{ $pageImg }}" alt="{{ $pageTitle }}" width="150"
+            height="150" />
+        </div>
+      </div>
+      <div class="blogcard-content w-70">
+        <div class="blogcard-title mb1 black f4 b">{{ $pageTitle }}</div>
+        <div class="blogcard-extract gray f5">
+          {{ $pageDesc | truncate 140}}
+        </div>
+        <div class="blogcard-host mt0 mt3-l f6 i gray athelas">— {{ $pageHost }}</div>
+      </div>
+    </div>
+  </a>
+</div>
+{{ else }}
+<p class="blogcard-alternative">Related Link: <a href="{{ $url }}">{{ $url }}</a></p>
 {{ end }}

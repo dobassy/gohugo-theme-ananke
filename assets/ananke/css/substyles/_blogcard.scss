@@ -1,44 +1,31 @@
 .blogcard {
-  line-height: 1;
-  background-color: #ffffff;
-  border: 1px solid #eeeeee;
-  word-wrap: break-word;
-  margin: 1em 0;
-  box-shadow: 0 0 10px 6px rgba(0, 0, 0, 0.025);
-  overflow: hidden;
-}
+  position: relative;
+  margin: 2em 0;
+  padding: 25px 10px 7px;
+  border: solid 2px $box-default;
+  background-color: #f9f9f9;
 
-.blogcard a {
-  text-decoration: none;
-  opacity: 1;
-  transition: all 0.2s ease;
-}
+  .box-label {
+    position: absolute;
+    display: block;
+    top: -2px;
+    left: -2px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 17px;
+    background: $box-default;
+    color: #ffffff;
+  }
 
-.blogcard a:hover {
-  opacity: 0.6;
-}
+  img.blogcard-img {
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5);
+  }
 
-.blogcard-thumbnail {
-  float: left;
-  padding: 0px;
-  padding-right: 20px;
-}
-
-.blogcard-title {
-  font-size: 1em;
-  font-weight: bold;
-  line-height: 1.4;
-  padding: 10px 20px 10px;
-  color: black;
-}
-
-.blogcard-extract,
-.blogcard-host {
-  font-size: 0.7em;
-  line-height: 1.6;
-  padding: 0 15px 10px 20px;
-  color: black;
-  opacity: 0.5;
+  p {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
