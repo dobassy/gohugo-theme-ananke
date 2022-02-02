@@ -62,8 +62,8 @@
     </script>
 {{ else if .IsHome }}
     {{ $eyecatchImage := "" }}
-    {{ if $.Site.Params.siteEyecatch }}
-        {{ $eyecatchImage = $.Site.Params.siteEyecatch| absURL }}
+    {{ if $.Site.Params.images }}
+        {{ $eyecatchImage = index $.Site.Params.images 0 | absURL }}
     {{ end -}}
 
     <script type="application/ld+json">
