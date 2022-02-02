@@ -1,0 +1,118 @@
+$breakPoint: 960px;
+
+.header-simple-menu {
+  width: 100%;
+  height: 70px;
+
+  .header__inner {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 1240px;
+    max-width: calc(100vw - 20px);
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  .header__siteTitle {
+    font-size: 32px;
+    @media only screen and (max-width: $breakPoint) {
+      font-size: 24px;
+    }
+    a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+      transition: color .2s;
+    }
+  }
+
+  .header__nav {
+    @media only screen and (max-width: $breakPoint) {
+      display: flex;
+      align-items: center;
+    }
+
+    ul {
+      margin-top: 0;
+    }
+  }
+  .header__navList {
+    display: flex;
+    height: 100%;
+
+    @media only screen and (max-width: $breakPoint) {
+      display: none;
+    }
+  }
+  .header__navListItem {
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+
+  .header__navLink {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+    transition: color .2s;
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: 0;
+      height: 5px;
+      margin: auto;
+      content: "";
+      background-color: $accent-color;
+      transition: width .2s;
+    }
+    &:hover {
+      color: $accent-color;
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .header__navButton {
+    position: relative;
+    display: none;
+    width: 50px;
+    height: 50px;
+    background-color: #000;
+    border: none;
+    border-radius: 50%;
+    @media only screen and (max-width: $breakPoint) {
+      display: block;
+    }
+  }
+  @mixin _navButtonLine {
+    position: absolute;
+    right: 0;
+    left: 0;
+    display: block;
+    width: 26px;
+    height: 2px;
+    margin: auto;
+    background-color: #fff;
+  }
+  .header__navButtonLineTop {
+    @include _navButtonLine;
+    transform: translateY(-10px);
+  }
+  .header__navButtonLineMiddle {
+    @include _navButtonLine;
+  }
+  .header__navButtonLineBottom {
+    @include _navButtonLine;
+    transform: translateY(10px);
+  }
+}
