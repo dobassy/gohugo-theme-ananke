@@ -12,6 +12,8 @@
         {{ $eyecatchImage = .Params.featured_image | absURL }}
     {{ else if .Params.images }}
         {{ $eyecatchImage = index .Params.images 0 | absURL }}
+    {{ else if $.Site.Params.noimageDefaultEyecatch }}
+        {{ $eyecatchImage = $.Site.Params.noimageDefaultEyecatch| absURL }}
     {{ else if $.Site.Params.images }}
         {{ $eyecatchImage = index $.Site.Params.images 0 | absURL }}
     {{ end -}}
@@ -59,11 +61,21 @@
     }
     </script>
 {{ else if .IsHome }}
+    {{ $eyecatchImage := "" }}
+    {{ if $.Site.Params.siteEyecatch }}
+        {{ $eyecatchImage = $.Site.Params.siteEyecatch| absURL }}
+    {{ end -}}
+
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
             "@type": "Blog",
             "url": {{ .Site.BaseURL }}
+            {{- with $eyecatchImage }},
+            "image": {
+                "@type": "ImageObject",
+                "url": {{ . }}
+            }{{ end }}
         }
     </script>
 {{ else }}
