@@ -1,6 +1,13 @@
 {{ $built := resources.Get "/ananke/js/sub.js" | minify | fingerprint }}
 <script src="{{ $built.RelPermalink }}" defer></script>
 
+{{ range site.Params.custom_js }}
+  {{ with partialCached "func/style/GetResource" . . }}{{ else }}
+    {{ $built := resources.Get . | minify | fingerprint }}
+    <script src="{{ $built.RelPermalink }}" defer></script>
+  {{ end }}
+{{ end }}
+
 {{ if .IsPage }}
   {{ if and (.Site.Params.legacyAlertMessage) (.Params.legacy_alert) }}
   <script type="text/javascript">
