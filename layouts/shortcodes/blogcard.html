@@ -11,7 +11,7 @@
 {{ $pageDesc := "Notice: You are in development mode or could not get the remote server" }}
 {{ $pageHost := $urlp.Host }}
 
-{{ if and (.Site.Params.ogpApiServer) (ne (getenv "OGP_DISABLED") "true" ) (eq (getenv "HUGO_ENV") "production") }}
+{{ if and (.Site.Params.ogpApiServer) (ne (getenv "HUGO_OGP_DISABLED") "true" ) (eq (getenv "HUGO_ENV") "production") }}
 {{ $function := print .Site.Params.ogpApiServer (querify "url" $url )}}
 {{ $ogpjson := getJSON $function }} {{ $urlp := urls.Parse $url }}
 {{ with $ogpjson.url }}
