@@ -20,6 +20,10 @@
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     {{ end }}
 
+    {{- if .Params.canonical_url -}}
+    <link rel="canonical" href="{{.Params.canonical_url}}" />
+    {{- end -}}
+
     {{/* NOTE: Set style related files here. */}}
     {{ partial "site-style.html" . }}
 
